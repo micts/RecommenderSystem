@@ -169,18 +169,3 @@ if __name__ == "__main__":
                         bool(args.logIteration), args.seed, args.learningRate, args.lambdaReg, 
                         args.numFeatures, args.iterations)
     
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
