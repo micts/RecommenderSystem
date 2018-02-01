@@ -6,6 +6,19 @@ Recommendation systems are software tools and techniques [1] used in order to fi
 
 This project is a Python implementation of the Matrix Factorization technique described in []. The function **MatrixFactorization()** takes several arguments, specifically:     
 
-* **data** (*string*): Directory of thhe data on which the technique is applied.
-* **delimiter** (*string*), *Default* **None**: Delimiter symbol to split the columns of the data.
-* **useCols** (*tuple*), *Default* **None**: Columns to be chosen from the data set, in order to apply the technique. In the case of Netflix data, these columns would be `user_id`, `movie_id`, `rating`.
+* **data** (*string*): Directory of the data on which the technique is applied.    
+* **delimiter** (*string*), *Default* **None**: Delimiter symbol to split the columns of the data.     
+* **useCols** (*tuple*), *Default* **None**: Columns to be chosen from the data set, in order to apply the technique. In the case of Netflix data, these columns would be `user_id`, `movie_id`, `rating`.     
+* **dtype** (*string*), *Default* **None**: Type of the data in columns (for example 'int').     
+* **method** (*string*), *Default* **None**: Whether to perform Cross Validation (CV). Input 'cv' to perfrom CV.    
+* **percTrain** (*float*), *Default* **None**: Percent of train set, in case no CV is performed.    
+* **numFolds** (*int*), *Default* **None**: Number of folds for CV.    
+* **log** (*boolean*), *Default* **True**: Whether to print an informative log.    
+* **logIteration** (*boolean*), *Default* **True**: Whether to print an informative log in each iteration.
+* **seed** (*int*), *Default* **100**: Seed for reproducibility of results.
+* **learningRate** (*float*), *Default* **0.005**: The learning rate.
+* **lambdaReg** (*float*), *Default* **0.05**: Regularization parameter to avoid overfitting.    
+* **numFeatures** (*int*), *Default* **10**: The number of features for users and movies.    
+* **iterations** (*int*), *Default* **75**: The number of iterations the algorithm should perform.
+
+
