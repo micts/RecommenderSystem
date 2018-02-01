@@ -18,7 +18,11 @@ We use the *MovieLens 1M* [9] data set which can be found [here](http://grouplen
 
 ### Function and Example
 
-The function **MatrixFactorization()** takes several arguments, specifically:     
+The function **MatrixFactorization()** performs Cross Validation (CV) if specified by the user, for a given number of folds defined by `numFolds`. If no CV is selected, the data are splitted into train and test sets, where the percent of train instances is defined by `percTrain`. Furthermore, the user can specify the `learningRate`, `lambdaReg` which is the regularization parameter, the number of features `numFeatures`, and the number of iterations `iterations`.    
+
+For more details, see [7].
+
+More specifically, the function accepts the following input arguments:     
 
 * **data** (*string*): Directory of the data on which the technique is applied.    
 * **delimiter** **(-d)**, (*string*), *Default* **None**: Delimiter symbol to split the columns of the data.     
