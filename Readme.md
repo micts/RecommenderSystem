@@ -21,31 +21,53 @@ We use the *MovieLens 1M* [9] data set which can be found [here](http://grouplen
 The function **MatrixFactorization()** takes several arguments, specifically:     
 
 * **data** (*string*): Directory of the data on which the technique is applied.    
-* **delimiter** (*string*), *Default* **None**: Delimiter symbol to split the columns of the data.     
-* **useCols** (*tuple*), *Default* **None**: Columns to be chosen from the data set, in order to apply the technique. In the case of Netflix data, these columns would be `user_id`, `movie_id`, `rating`.     
-* **dtype** (*string*), *Default* **None**: Type of the data in columns (for example 'int').     
-* **method** (*string*), *Default* **None**: Whether to perform Cross Validation (CV). Input 'cv' to perfrom CV.    
-* **percTrain** (*float*), *Default* **None**: Percent of train set, in case no CV is performed.    
-* **numFolds** (*int*), *Default* **None**: Number of folds for CV.    
-* **log** (*boolean*), *Default* **True**: Whether to print an informative log.    
-* **logIteration** (*boolean*), *Default* **True**: Whether to print an informative log in each iteration.
-* **seed** (*int*), *Default* **100**: Seed for reproducibility of results.
-* **learningRate** (*float*), *Default* **0.005**: The learning rate.
-* **lambdaReg** (*float*), *Default* **0.05**: Regularization parameter to avoid overfitting.    
-* **numFeatures** (*int*), *Default* **10**: The number of features for users and movies.    
-* **iterations** (*int*), *Default* **75**: The number of iterations the algorithm should perform.
+* **delimiter** **(-d)**, (*string*), *Default* **None**: Delimiter symbol to split the columns of the data.     
+* **useCols** **(-uc)** (*tuple*), *Default* **None**: Columns to be chosen from the data set, in order to apply the technique. In the case of Netflix data, these columns would be `user_id`, `movie_id`, `rating`.     
+* **dtype** **(-dt)** (*string*), *Default* **None**: Type of the data in columns (for example 'int').     
+* **method** **(-m)** (*string*), *Default* **None**: Whether to perform Cross Validation (CV). Input 'cv' to perfrom CV.    
+* **percTrain** **(-pt)** (*float*), *Default* **None**: Percent of train set, in case no CV is performed.    
+* **numFolds** **(-nf)** (*int*), *Default* **None**: Number of folds for CV.    
+* **log** **(-l)** (*boolean*), *Default* **True**: Whether to print an informative log.    
+* **logIteration** **(-li)** (*boolean*), *Default* **True**: Whether to print an informative log in each iteration.
+* **seed** **(-s)** (*int*), *Default* **100**: Seed for reproducibility of results.
+* **learningRate** **(-lr)** (*float*), *Default* **0.005**: The learning rate.
+* **lambdaReg** **(-lreg)** (*float*), *Default* **0.05**: Regularization parameter to avoid overfitting.    
+* **numFeatures** **(-fe)** (*int*), *Default* **10**: The number of features for users and movies.    
+* **iterations** **(-i)** (*int*), *Default* **75**: The number of iterations the algorithm should perform.
+
+To run from terminal:    
+
+```
+python main.py ratings.dat -d :: -uc (0,1,2) -dt int -m cv -nf 5 -l True -li True -s 100 -lr 0.005 -lreg 0.05 -fe 10 -i 75    
+```    
+Within Python (for no CV, where we split train/test into 70/30):   
+```python
+import main
+main.MatrixFactorization(ratings.dat', 
+                         delimiter = "::", 
+                         useCols = (0,1,2), 
+                         dtype = int, 
+                         percTrain = 0.7, 
+                         seed = 150, 
+                         learningRate = 0.003, 
+                         lambdaReg = 0.04, 
+                         numFeatures = 15, 
+                         iterations = 60)
+
+```
+
 
 
 ### References   
 [1] Ricci, F., Rokach, L., & Shapira, B. (2011). Introduction to recommender systems handbook. In *Recommender systems handbook*                           (pp. 1-35). springer US.    
-[2] Isinkaye, F. O., Folajimi, Y. O., & Ojokoh, B. A. (2015). Recommendation systems: Principles, methods and evaluation. *Egyptian Informatics Journal*, 16(3), 261-273.
-[3] Leskovec, J., Rajaraman, A., & Ullman, J. D. (2014). *Mining of massive datasets*. Cambridge university press.
-[4] Schafer, J. B., Frankowski, D., Herlocker, J., & Sen, S. (2007). Collaborative filtering recommender systems. In *The adaptive web* (pp. 291-324). Springer, Berlin, Heidelberg.
-[5] Sarwar, B., Karypis, G., Konstan, J., & Riedl, J. (2001, April). Item-based collaborative filtering recommendation algorithms. In *Proceedings of the 10th international conference on World Wide Web* (pp. 285-295). ACM.
-[6] Brusilovski, P., Kobsa, A., & Nejdl, W. (Eds.). (2007). *The adaptive web: methods and strategies of web personalization* (Vol. 4321). Springer Science & Business Media.
-[7] Liu, B., Bennett, J., Elkan, C., Smyth, P., & Tikk, D. (2007, August). KDD Cup and Workshop 2007. In *Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining* (p. 2). ACM.
-[8] Sarwar, B., Karypis, G., Konstan, J., & Riedl, J. (2000). *Application of dimensionality reduction in recommender system-a case study* (No. TR-00-043). Minnesota Univ Minneapolis Dept of Computer Science.
-[9] Harper, F. M., & Konstan, J. A. (2016). The movielens datasets: History and context. *ACM Transactions on Interactive Intelligent Systems* (TiiS), 5(4), 19.
+[2] Isinkaye, F. O., Folajimi, Y. O., & Ojokoh, B. A. (2015). Recommendation systems: Principles, methods and evaluation. *Egyptian Informatics Journal*, 16(3), 261-273.     
+[3] Leskovec, J., Rajaraman, A., & Ullman, J. D. (2014). *Mining of massive datasets*. Cambridge university press.     
+[4] Schafer, J. B., Frankowski, D., Herlocker, J., & Sen, S. (2007). Collaborative filtering recommender systems. In *The adaptive web* (pp. 291-324). Springer, Berlin, Heidelberg.     
+[5] Sarwar, B., Karypis, G., Konstan, J., & Riedl, J. (2001, April). Item-based collaborative filtering recommendation algorithms. In *Proceedings of the 10th international conference on World Wide Web* (pp. 285-295). ACM.     
+[6] Brusilovski, P., Kobsa, A., & Nejdl, W. (Eds.). (2007). *The adaptive web: methods and strategies of web personalization* (Vol. 4321). Springer Science & Business Media.    
+[7] Liu, B., Bennett, J., Elkan, C., Smyth, P., & Tikk, D. (2007, August). KDD Cup and Workshop 2007. In *Proceedings of the 13th ACM SIGKDD international conference on Knowledge discovery and data mining* (p. 2). ACM.    
+[8] Sarwar, B., Karypis, G., Konstan, J., & Riedl, J. (2000). *Application of dimensionality reduction in recommender system-a case study* (No. TR-00-043). Minnesota Univ Minneapolis Dept of Computer Science.     
+[9] Harper, F. M., & Konstan, J. A. (2016). The movielens datasets: History and context. *ACM Transactions on Interactive Intelligent Systems* (TiiS), 5(4), 19.     
 
 
 
