@@ -16,9 +16,9 @@ You can also check the (sligthly different) `C++` implementation in Simon's Funk
 
 We use the *MovieLens 1M* [9] data set which can be found [here](http://grouplens.org/datasets/movielens/). The data set contains about 1.000.000 ratings given to about 4.000 movies by about 6.000 users. Additionally, some information is provided about movies (genre, title, production year) and users (gender, age, occupation). We are only interested in the `ratings.dat` file, which is of the from `<user_id`, `movie_id`, `rating`, `timestamp>`, and more specifically, we are not interested in the timestamp.   
 
-### Function and Example
+### Short Documentation and Example
 
-The function **MatrixFactorization()** performs Cross Validation (CV) if specified by the user, for a given number of folds defined by `numFolds`. If no CV is selected, the data are splitted into train and test sets, where the percent of train instances is defined by `percTrain`. Furthermore, the user can specify the `learningRate`, `lambdaReg` which is the regularization parameter, the number of features `numFeatures`, and the number of iterations `iterations`.    
+The function **MatrixFactorization()** performs Cross Validation (CV) if specified by the user, for a given number of folds defined by `numFolds`. The default is no CV, in which case, the data are splitted into train and test sets, where the percent of train instances is defined by `percTrain`. Default value is 0.7. Furthermore, the user can specify the `learningRate`, the `lambdaReg` which is the regularization parameter, the number of features `numFeatures`, and the number of iterations `iterations`.    
 
 For more details, see [7].
 
