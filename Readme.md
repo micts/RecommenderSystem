@@ -44,7 +44,7 @@ To run from terminal:
 ```
 python main.py ratings.dat -d :: -uc (0,1,2) -dt int -m cv -nf 5 -l True -li True -s 100 -lr 0.005 -lreg 0.05 -fe 10 -i 75    
 ```    
-Within Python (for no CV, where we split train/test into 70/30):   
+Within Python (in this example for no CV, where we split train/test into 70/30):   
 ```python
 import main
 main.MatrixFactorization(ratings.dat', 
