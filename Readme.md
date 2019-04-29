@@ -1,4 +1,4 @@
-## Movie Recommendation with Matrix Factorization
+## Movie Recommendation Using Matrix Factorization
 
 ### Introduction
 
