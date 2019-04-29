@@ -1,4 +1,4 @@
-## Matrix Factorization for Recommendation: An Implementation Using Netflix Data.
+## Movie Recommendation with Matrix Factorization
 
 This is a project in the framework of the course *Advances in Data Mining* of Leiden University. 
 
